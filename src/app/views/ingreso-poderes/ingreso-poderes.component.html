@@ -1,0 +1,396 @@
+<div id="tablaPrincipal" class="p-grid" *ngIf="validarIngreso">
+	<div class="p-col-12">
+		<h1>GRUPO DE PAGO DE LA PÓLIZA - PODERES</h1>
+		<h5></h5>
+		<h4></h4>
+		<h5></h5>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+	<div class="p-grid table-demo">
+		<div class="p-col-12">
+			<div class="card">
+				<p-table class="p-col-12" #dt [value]="ObtieneListaGrupoPagoBeneficiariosResponse"
+					[(selection)]="selectedBeneficiarios" dataKey="NAT_NUMRUT" styleClass="p-datatable-customers"
+					[rowHover]="true" [rows]="10" [paginator]="true" [filterDelay]="0"
+					[globalFilterFields]="['NAT_NOMBRE', 'NAT_NUMRUT']">
+					<ng-template pTemplate="caption">
+						<div class="table-header"></div>
+					</ng-template>
+					<ng-template pTemplate="header">
+						<tr>
+							<th style="width: 3rem"></th>
+							<th pSortableColumn="NAT_NOMBRE">
+								Representante
+								<p-sortIcon field="NAT_NOMBRE"></p-sortIcon>
+							</th>
+							<th pSortableColumn="NAT_NUMRUT">
+								RUT
+								<p-sortIcon field="NAT_NUMRUT"></p-sortIcon>
+							</th>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="body" let-beneficiario>
+						<tr class="p-selectable-row">
+							<td>
+								<p-tableCheckbox [value]="beneficiario"></p-tableCheckbox>
+							</td>
+							<td>
+								<span class="p-column-title"></span> {{ beneficiario.NAT_NOMBRE }} {{
+								beneficiario.NAT_AP_PAT }}
+								{{ beneficiario.NAT_AP_MAT }}
+							</td>
+							<td><span class="p-column-title"></span> {{ beneficiario.NAT_NUMRUT }}-{{
+								beneficiario.NAT_DV }}</td>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="emptymessage">
+						<tr>
+							<td colspan="8">No hay beneficiarios asociados.</td>
+						</tr>
+					</ng-template>
+				</p-table>
+			</div>
+		</div>
+	</div>
+	<div class="p-field p-col-12">
+		<p-messages [value]="msgs"></p-messages>
+	</div>
+	<div class="p-field p-col-12"></div>
+	<div class="p-field p-col-12"></div>
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-2">
+				<button pButton pRipple type="button" label="Seleccionar" (click)="SeleccionBeneficiario()"
+					class="p-mr-2 p-mb-2"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="tablaPrincipalDos" class="p-grid" *ngIf="seleccionoBeneficiario">
+	<div class="p-col-12">
+		<h1>MANTENCIÓN DE PODERES</h1>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+	<div class="p-col-1"></div>
+	<div class="p-col-5">
+		<span class="negritatitulos">Representante : {{ nombreBeneficiario }}</span>
+	</div>
+	<div class="p-col-3"></div>
+	<div class="p-col-3">
+		<span class="negritatitulos"> RUT : {{ rutBeneficiario }}</span>
+	</div>
+	<div class="p-col-12">
+		<div class="card">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input id="nombre_receptor" required maxlength="60" autocomplete="off" disabled
+							[(ngModel)]="model.nombre_receptor" #nombre_receptor="ngModel"
+							[ngModelOptions]="{ standalone: true }" type="text" pInputText />
+						<label for="nombre_receptor">Nombre Receptor</label>
+					</span>
+				</div>
+				<div class="p-col-2"></div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="text" minlength="7" required maxlength="9" autocomplete="off" disabled [formatRut]
+							pInputText id="rut_receptor" [(ngModel)]="model.rut_receptor" #rut_receptor="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="rut_receptor">Rut Receptor</label>
+					</span>
+				</div>
+				<div class="p-field p-col-2">
+					<button type="text" (click)="ShowBuscaPersonas()" pButton icon="pi pi-search"
+						class="p-button-rounded p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-field p-col-3">
+					<span class="p-float-label">
+						<p-dropdown inputId="tipoPoder" id="tipoPoder" [ngModelOptions]="{ standalone: true }"
+							(onChange)="cambioTipoPoder(); ValidaFechas()" #tipoPoder="ngModel" required
+							[options]="obtieneTiposPoderesResponse" [autoDisplayFirst]="false" placeholder=""
+							[(ngModel)]="tipoPoderSelected" optionLabel="ID_TEXTO" optionValue="ID"></p-dropdown>
+						<label for="tipoPoder">Tipo de Poder</label>
+					</span>
+				</div>
+				<div class="p-field p-col-9"></div>
+				<div class="p-field p-col-12" *ngIf="SeleccionaTipoPoder">
+					<ul>
+						<div class="p-col-12">
+							<li>
+								<h5>{{ mensajeUno }}</h5>
+							</li>
+						</div>
+						<div class="p-col-12">
+							<li>
+								<h5>{{ mensajeDos }}</h5>
+							</li>
+						</div>
+					</ul>
+				</div>
+				<div class="p-field p-col-12" *ngIf="TipoSuscripcion">
+					<div class="p-col-12">
+						<h4 class="negritatitulos">Indique Tipo de suscripción</h4>
+					</div>
+					<div class="p-field p-col-12">
+						<div class="p-grid">
+							<div class="p-col-12">
+								<div class="p-field-radiobutton">
+									<p-radioButton name="radio1" value="0" [(ngModel)]="model.tipoSuscripcion"
+										(onClick)="esRenovacion()" id="radio1" #radio1="ngModel"
+										[ngModelOptions]="{ standalone: true }"></p-radioButton>
+									<label for="radio1">Renovación de Poder</label>
+								</div>
+							</div>
+							<div class="p-col-12">
+								<div class="p-field-radiobutton">
+									<p-radioButton name="radio2" value="1" [(ngModel)]="model.tipoSuscripcion"
+										(onClick)="esRenovacion()" id="radio2" #radio2="ngModel"
+										[ngModelOptions]="{ standalone: true }"></p-radioButton>
+									<label for="radio2">Nueva Suscripción de Poder</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="p-field p-col-12"></div>
+				</div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-3">
+					<span class="p-float-label">
+						<input type="date" required autocomplete="off" pInputText id="fecha_notificacion" disabled
+							[(ngModel)]="model.fecha_notificacion" #fecha_notificacion="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="fecha_notificacion">Fecha Notificacion</label>
+					</span>
+				</div>
+				<div class="p-field p-col-3">
+					<span class="p-float-label">
+						<input type="date" required autocomplete="off" pInputText id="fecha_suscripcion"
+							(blur)="ValidaFechas()" [(ngModel)]="model.fecha_suscripcion" #fecha_suscripcion="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="fecha_suscripcion" *ngIf="!isRenovacion">Fecha Suscripcion</label>
+						<label for="fecha_suscripcion" *ngIf="isRenovacion">Fecha Renovación</label>
+					</span>
+				</div>
+				<div class="p-field p-col-3">
+					<span class="p-float-label">
+						<input type="date" required autocomplete="off" pInputText id="fecha_vencimiento"
+							[(ngModel)]="model.fecha_vencimiento" (blur)="ValidaFechas()" #fecha_vencimiento="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="fecha_vencimiento">Fecha Vencimiento</label>
+					</span>
+				</div>
+			</div>
+			<div class="p-col-12">
+				<h3 class="negritatitulos">NOTAS:</h3>
+			</div>
+			<ul>
+				<div class="p-col-12">
+					<li><span> Para seleccionar una fecha, haga click en el cuadro de texto y se desplegará el
+							calendario.</span></li>
+				</div>
+				<div class="p-col-12">
+					<li><span>Fecha de Suscripción: Indicada en el documento.</span></li>
+				</div>
+				<div class="p-col-12">
+					<li><span>Fecha de Vencimiento: Indicada en el documento.</span></li>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<div class="p-field p-col-12" *ngIf="fechasInvalidas">
+		<p-messages [value]="msgs"></p-messages>
+	</div>
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-2">
+				<button pButton pRipple type="button" label="Guardar" (click)="ValidarDatos()"
+					class="p-mr-2 p-mb-2"></button>
+			</div>
+			<div class="p-col-1"></div>
+			<div class="p-col-1"></div>
+			<div class="p-col-1"></div>
+			<div class="p-col-1"></div>
+			<div class="p-col-2"></div>
+			<div class="p-col-3">
+				<button pButton pRipple type="button" label="Volver" (click)="Volver()"
+					class="p-button-danger p-mr-2 p-mb-2"></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p-dialog header="Búsqueda de Personas" [(visible)]="displayBuscaPersona" [draggable]="false" [resizable]="false"
+	[modal]="true" [baseZIndex]="999999999" showEffect="fade" [style]="{ width: '70vw' }">
+	<div style="line-height: 1.5">
+		<div class="p-col-12">
+			<div class="card">
+				<div class="p-fluid p-formgrid p-grid">
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" required minlength="7" maxlength="9" pInputText
+								id="rut_beneficiario" [formatRut] (blur)="ObtienePersona(model.rut_beneficiario)"
+								[(ngModel)]="model.rut_beneficiario" #rut_beneficiario="ngModel"
+								[ngModelOptions]="{ standalone: true }" />
+							<label for="rut_beneficiario">Rut</label>
+						</span>
+					</div>
+					<div class="p-field p-col-4">
+						{{msj_persona}}
+					</div>
+					<div class="p-col-3"></div>
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" maxlength="20" required pInputText
+								id="apellido_paterno" [(ngModel)]="model.apellido_paterno" #apellido_paterno="ngModel"
+								(keyup)="removeSpecialCharactersApP($event);" [ngModelOptions]="{ standalone: true }" />
+							<label for="apellido_paterno">Apellido Paterno</label>
+						</span>
+					</div>
+					<div class="p-col-1"></div>
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" maxlength="20" required pInputText
+								id="apellido_materno" [(ngModel)]="model.apellido_materno" #apellido_materno="ngModel"
+								(keyup)="removeSpecialCharactersApM($event);" [ngModelOptions]="{ standalone: true }" />
+							<label for="apellido_materno">Apellido Materno</label>
+						</span>
+					</div>
+					<div class="p-col-1"></div>
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" maxlength="40" required pInputText
+								id="nombre_beneficiario" [(ngModel)]="model.nombre_beneficiario"
+								(keyup)="removeSpecialCharactersNombre($event);" #nombre_beneficiario="ngModel"
+								[ngModelOptions]="{ standalone: true }" />
+							<label for="nombre_beneficiario">Nombre</label>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p-footer>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2">
+					<button pButton pRipple type="button" label="{{ GuardarOseleccionar }}" (click)="GuardarPersona()"
+						class="p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-col-1"></div>
+				<div class="p-col-1"></div>
+				<div class="p-col-1"></div>
+				<div class="p-col-1"></div>
+				<div class="p-col-2"></div>
+				<div class="p-col-3">
+					<button pButton pRipple type="button" label="Cerrar" (click)="CerrarModalPersona()"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+	</p-footer>
+</p-dialog>
+
+<p-dialog header="Forma de Pago" [(visible)]="permiteIngreso" [draggable]="false" [resizable]="false" [modal]="true"
+	[baseZIndex]="999999999" showEffect="fade" [style]="{ width: '400', minWidth: '400' }"
+	[contentStyle]="{ minHeight: '400' }">
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+
+			<div class="p-col-12">
+				<span class="negritatitulos"> Estimado Usuario </span>
+				<div class="p-col-12">
+					<br />
+				</div>
+				<div class="p-col-12">
+					<br />
+				</div>
+				<div class="p-col-12">
+					<br />
+				</div>
+				<div class="p-col-12">
+					<span> Recuerde modificar la forma de pago si el mandatario así lo requiere. </span>
+				</div>
+				<div class="p-col-5"></div>
+				<div class="p-col-2"></div>
+			</div>
+		</div>
+	</div>
+	<p-footer>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-2">
+					<button pButton pRipple type="button" label="Aceptar" (click)="GuardarRenovarPoder()"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-field p-col-7">
+					
+				</div>
+				<div class="p-field p-col-2"></div>
+			</div>
+		</div>
+	</p-footer>
+</p-dialog>
+
+<p-dialog (onHide)="closeModal()" id="modalIngresoDocto" header=" " [(visible)]="mostrarIframe" [draggable]="false"
+	[resizable]="true" [modal]="true" [baseZIndex]="99999999999999" showEffect="fade"
+	[style]="{ width: '900px', minWidth: '900px' }" [contentStyle]="{ minHeight: '650px' }">
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<iframe [src]="urlSafeAperturaControlDocto" id="iframeRecepcion" frameborder="0" scrolling="no"
+				width="900px" height="650px"></iframe>
+		</div>
+	</div>
+</p-dialog>
+
+<div class="p-col-12" *ngIf="guardoCorrectamente">
+	<div class="p-col-12">
+		<h1>MANTENCIÓN DE PODERES</h1>
+		<h5></h5>
+		<h5></h5>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+
+	<div class="p-col-12">
+		<div class="card cambioheight">
+			<h5></h5>
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-12"></div>
+				<div *ngIf="!generoRemesable">
+					<div class="p-col-12">
+						<p-messages [value]="msgs"></p-messages>
+					</div>
+					<div class="p-col-12">
+						<h4>Para terminar el proceso, Seleccione recepcionar documentos.</h4>
+					</div>
+				</div>
+			</div>
+			<div class="p-field p-col-12"></div>
+			<div class="p-field p-col-12">
+				<p-messages [value]="msgs"></p-messages>
+			</div>
+		</div>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2" *ngIf="!generoRemesable">
+					<button pButton pRipple type="button" (click)="AbrirRecepcionDeDocumentos()"
+						label="Recepcionar Documentos" class="p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-col-2 p-offset-8" *ngIf="generoRemesable">
+					<button pButton pRipple type="button" (click)="Volver()" label="Volver"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+.ax_paragraph {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+
+.ax_image {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#000000;
+  text-align:center;
+  line-height:normal;
+}
+
+.ax_h1 {
+  font-family:'Arial Negrita', 'Arial';
+  font-weight:500;
+  font-style:normal;
+  font-size:18px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+
+.ax_h2 {
+  font-family:'Arial Negrita', 'Arial';
+  font-weight:300;
+  font-style:normal;
+  font-size:15px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+
+
+.ax_horizontal_line {
+  font-size:13px;
+  color:#333333;
+  text-align:center;
+  line-height:normal;
+}
+
+.ax_text {
+  font-family:'Arial Negrita', 'Arial';
+  font-weight:300;
+  font-style:normal;
+  font-size:14px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+
+.ax_text_link {
+  color:#0000FF;
+}

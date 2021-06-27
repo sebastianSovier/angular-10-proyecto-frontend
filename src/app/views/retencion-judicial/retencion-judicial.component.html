@@ -1,0 +1,461 @@
+<div id="tablaPrincipal" class="p-grid" *ngIf="validarIngreso">
+	<div class="p-col-12">
+		<h1>SELECCIÓN BENEFICIARIOS - RETENCIÓN JUDICIAL</h1>
+		<h5></h5>
+		<h4></h4>
+		<h5></h5>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+	<div class="p-grid table-demo">
+		<div class="p-col-12">
+			<div class="card">
+				<p-table class="p-col-12" #dt [value]="ObtieneListaGrupoPagoBeneficiariosResponse"
+					[(selection)]="selectedBeneficiarios" dataKey="NAT_NUMRUT" styleClass="p-datatable-customers"
+					[rowHover]="true" [rows]="10" [paginator]="true" [filterDelay]="0"
+					[globalFilterFields]="['NAT_NOMBRE', 'NAT_NUMRUT', 'ID_RELACION']">
+					<ng-template pTemplate="caption">
+						<div class="table-header"></div>
+					</ng-template>
+					<ng-template pTemplate="header">
+						<tr>
+							<th style="width: 3rem"></th>
+							<th pSortableColumn="NAT_NOMBRE">
+								Representante
+								<p-sortIcon field="NAT_NOMBRE"></p-sortIcon>
+							</th>
+							<th pSortableColumn="NAT_NUMRUT">
+								RUT
+								<p-sortIcon field="NAT_NUMRUT"></p-sortIcon>
+							</th>
+							<th pSortableColumn="ID_RELACION">
+								RELACIÓN
+								<p-sortIcon field="ID_RELACION"></p-sortIcon>
+							</th>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="body" let-beneficiario>
+						<tr class="p-selectable-row">
+							<td>
+								<p-tableCheckbox [value]="beneficiario"></p-tableCheckbox>
+							</td>
+							<td>
+								<span class="p-column-title"></span> {{ beneficiario.NAT_NOMBRE }} {{
+								beneficiario.NAT_AP_PAT }}
+								{{ beneficiario.NAT_AP_MAT }}
+							</td>
+							<td><span class="p-column-title"></span> {{ beneficiario.NAT_NUMRUT }}-{{
+								beneficiario.NAT_DV }}</td>
+							<td>
+								<span class="p-column-title"></span> {{ beneficiario.ID_RELACION }} -
+								{{ beneficiario.DESC_RELACION }}
+							</td>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="emptymessage">
+						<tr>
+							<td colspan="8">No hay beneficiarios asociados.</td>
+						</tr>
+					</ng-template>
+				</p-table>
+			</div>
+		</div>
+	</div>
+	<div class="p-field p-col-12">
+		<p-messages [value]="msgs"></p-messages>
+	</div>
+	<div class="p-field p-col-12"></div>
+	<div class="p-field p-col-12"></div>
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-2">
+				<button pButton pRipple type="button" label="Seleccionar" (click)="SeleccionBeneficiario()"
+					class="p-mr-2 p-mb-2"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="tablaPrincipalDos" class="p-grid" *ngIf="seleccionoBeneficiario">
+	<div class="p-col-12">
+		<h1>INGRESO DE RETENCIÓN JUDICIAL</h1>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+	<div class="p-col-1"></div>
+	<div class="p-col-5">
+		<span class="negritatitulos">Beneficiario : {{ nombreBeneficiario }}</span>
+	</div>
+	<div class="p-col-3"></div>
+	<div class="p-col-3">
+		<span class="negritatitulos"> RUT : {{ rutBeneficiario }}</span>
+	</div>
+	<div class="p-col-12">
+		<div class="card">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-5">
+					<span class="p-float-label">
+						<input id="nombre_receptor" required maxlength="60" autocomplete="off" disabled
+							[(ngModel)]="model.nombre_receptor" #nombre_receptor="ngModel"
+							[ngModelOptions]="{ standalone: true }" type="text" pInputText />
+						<label for="nombre_receptor">Beneficiario R.J.:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-1">
+					<button type="text" (click)="ShowBuscaPersonas()" pButton icon="pi pi-search"
+						class="p-button-rounded p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="text" minlength="7" required maxlength="9" autocomplete="off" disabled [formatRut]
+							pInputText id="rut_receptor" [(ngModel)]="model.rut_receptor" #rut_receptor="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="rut_receptor">RUT:</label>
+					</span>
+				</div>
+
+				<div class="p-field p-col-5">
+					<span class="p-float-label">
+						<p-dropdown inputId="forma_descuento" id="forma_descuento" autocomplete="off"
+							(onChange)="CambioFormaDescuento()" required [ngModelOptions]="{ standalone: true }"
+							#forma_descuento="ngModel" [options]="ObtieneListaFormaDescuentoResponse"
+							[autoDisplayFirst]="false" placeholder="" [(ngModel)]="selectedFormaDescuento"
+							optionLabel="TEXTO" optionValue="ID"></p-dropdown>
+						<label for="forma_descuento">Forma Descuento:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-1"></div>
+				<div class="p-field p-col-3">
+					<span class="p-float-label">
+						<input type="number" required autocomplete="off" (blur)="ValidaPorcentaje()" max="100"
+							pInputText id="porcentaje_rj" [(ngModel)]="model.porcentaje_rj" #porcentaje_rj="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="porcentaje_rj">Porcentaje:</label>
+					</span>
+					(%)
+				</div>
+				<div class="p-field p-col-3"></div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="text" required autocomplete="off" pInputText id="expediente_rj"
+							[(ngModel)]="model.expediente_rj" maxlength="10" #expediente_rj="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="expediente_rj">Expediente:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-2"></div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="number" required autocomplete="off" (blur)="ValidaMonto()" pInputText id="monto_rj"
+							[(ngModel)]="model.monto_rj" #monto_rj="ngModel" [ngModelOptions]="{ standalone: true }" />
+						<label for="monto_rj">Monto:</label>
+					</span>
+					<span>(Última pensión imponible $: {{ pensionImponible }})</span>
+				</div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="date" required autocomplete="off" onkeydown="return false" pInputText
+							id="fecha_emision" (blur)="ValidaFechas()" [(ngModel)]="model.fecha_emision"
+							#fecha_emision="ngModel" [ngModelOptions]="{ standalone: true }" />
+						<label for="fecha_emision">Fecha Emisión:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-2"></div>
+				<div class="p-field p-col-3">
+					<span class="p-float-label">
+						<p-dropdown inputId="asignacion_familiar" id="asignacion_familiar" autocomplete="off"
+							[ngModelOptions]="{ standalone: true }" #asignacion_familiar="ngModel"
+							[options]="ObtieneListaAsigFamiliarResponse" [autoDisplayFirst]="false" placeholder=""
+							[(ngModel)]="selectedAsigFamiliar" optionLabel="TEXTO" optionValue="ID"></p-dropdown>
+						<label for="asignacion_familiar">Asig. Familiar:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-2"></div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="date" required autocomplete="off" disabled pInputText id="fecha_recepcion"
+							[(ngModel)]="model.fecha_recepcion" #fecha_recepcion="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="fecha_recepcion">Fecha Recepción</label>
+					</span>
+				</div>
+				<div class="p-field p-col-2"></div>
+				<div class="p-field p-col-4">
+					<span class="p-float-label">
+						<input type="text" required autocomplete="off" pInputText id="mes_inicio"
+							[(ngModel)]="model.mes_inicio" #mes_inicio="ngModel" disabled
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="mes_inicio">Mes Inicio:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-8">
+					<span class="p-float-label">
+						<input type="text" required autocomplete="off" pInputText id="juez_rj"
+							[(ngModel)]="model.juez_rj" #juez_rj="ngModel" maxlength="50"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="juez_rj">Juez:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-4"></div>
+				<div class="p-field p-col-5">
+					<span class="p-float-label">
+						<p-dropdown inputId="forma_pago" id="forma_pago" required (onChange)="CambioFormaPago()"
+							[ngModelOptions]="{ standalone: true }" autocomplete="off" #forma_pago="ngModel"
+							[options]="ObtieneListaFormaPagoResponse" [autoDisplayFirst]="false" placeholder=""
+							[(ngModel)]="selectedFormaPago" optionLabel="TEXTO" optionValue="ID"></p-dropdown>
+						<label for="forma_pago">Forma de pago:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-7"></div>
+				<div class="p-field p-col-3" *ngIf="formaPagoSucursal">
+					<span class="p-float-label">
+						<p-dropdown inputId="sucursal" id="sucursal" [ngModelOptions]="{ standalone: true }"
+							#sucursal="ngModel" [options]="Sucursales" required [autoDisplayFirst]="false"
+							placeholder="" [(ngModel)]="sucursalSelected" optionLabel="ID_TEXTO" optionValue="ID">
+						</p-dropdown>
+						<label for="sucursal">Seleccione Sucursal</label>
+					</span>
+				</div>
+				<!--<div class="p-field p-col-3" *ngIf="!tipoPagoSucursal"></div>-->
+
+				<div class="p-field p-col-5" *ngIf="formaPagoDomicilio">
+					<span class="p-float-label">
+						<input type="text" required autocomplete="off" pInputText id="direccion_rj"
+							[(ngModel)]="model.direccion_rj" maxlength="50" #direccion_rj="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="direccion_rj">Direccion:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-1" *ngIf="formaPagoDomicilio"></div>
+				<div class="p-field p-col-4" *ngIf="formaPagoDomicilio">
+					<span class="p-float-label">
+						<input type="text" required autocomplete="off" maxlength="30" pInputText id="comuna_rj"
+							[(ngModel)]="model.comuna_rj" #comuna_rj="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="comuna_rj">Comuna:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-4" *ngIf="formaPagoDomicilio">
+					<span class="p-float-label">
+						<input type="text" required autocomplete="off" maxlength="30" pInputText id="ciudad_rj"
+							[(ngModel)]="model.ciudad_rj" #ciudad_rj="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="ciudad_rj">Ciudad:</label>
+					</span>
+				</div>
+				<div class="p-field p-col-3" *ngIf="formaPagoDepositoEnCuenta">
+					<span class="p-float-label">
+						<p-dropdown inputId="banco_rj" id="banco_rj" [ngModelOptions]="{ standalone: true }"
+							#banco_rj="ngModel" [options]="ObtieneListaBancosResponse" [autoDisplayFirst]="false"
+							placeholder="" [(ngModel)]="selectedBanco" required optionLabel="TEXTO" optionValue="ID">
+						</p-dropdown>
+						<label for="banco_rj">Seleccione Banco</label>
+					</span>
+				</div>
+				<div class="p-field p-col-4" *ngIf="formaPagoDepositoEnCuenta">
+					<span class="p-float-label">
+						<input type="number" required autocomplete="off" maxlength="25" pInputText id="nro_cuenta_rj"
+							[(ngModel)]="model.nro_cuenta_rj" #nro_cuenta_rj="ngModel"
+							[ngModelOptions]="{ standalone: true }" />
+						<label for="nro_cuenta_rj">Numero de Cuenta:</label>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-field p-col-12" *ngIf="fechasInvalidas">
+		<p-messages [value]="msgs"></p-messages>
+	</div>
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-2">
+				<button pButton pRipple type="button" label="Guardar" (click)="ValidarDatos()"
+					class="p-mr-2 p-mb-2"></button>
+			</div>
+			<div class="p-col-1"></div>
+			<div class="p-col-1"></div>
+			<div class="p-col-1"></div>
+			<div class="p-col-1"></div>
+			<div class="p-col-4"></div>
+			<div class="p-col-2">
+				<button pButton pRipple type="button" label="Volver" (click)="Volver()"
+					class="p-button-danger p-mr-2 p-mb-2"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<p-dialog header="Búsqueda de Personas" [(visible)]="displayBuscaPersona" [draggable]="false" [resizable]="false"
+	[modal]="true" [baseZIndex]="999999999" showEffect="fade" [style]="{ width: '70vw' }">
+	<div style="line-height: 1.5">
+		<div class="p-col-12">
+			<div class="card">
+				<div class="p-fluid p-formgrid p-grid">
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" required minlength="7" maxlength="9" pInputText
+								id="rut_beneficiario" [formatRut] (blur)="ObtienePersona(model.rut_beneficiario)"
+								[(ngModel)]="model.rut_beneficiario" #rut_beneficiario="ngModel"
+								[ngModelOptions]="{ standalone: true }" />
+							<label for="rut_beneficiario">Rut</label>
+						</span>
+					</div>
+					<div class="p-field p-col-4">
+						{{msj_persona}}
+					</div>
+					<div class="p-col-3"></div>
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" maxlength="20" required pInputText
+								id="apellido_paterno" [(ngModel)]="model.apellido_paterno" #apellido_paterno="ngModel"
+								(keyup)="removeSpecialCharactersApP($event);" [ngModelOptions]="{ standalone: true }" />
+							<label for="apellido_paterno">Apellido Paterno</label>
+						</span>
+					</div>
+					<div class="p-col-1"></div>
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" maxlength="20" required pInputText
+								id="apellido_materno" [(ngModel)]="model.apellido_materno" #apellido_materno="ngModel"
+								(keyup)="removeSpecialCharactersApM($event);" [ngModelOptions]="{ standalone: true }" />
+							<label for="apellido_materno">Apellido Materno</label>
+						</span>
+					</div>
+					<div class="p-col-1"></div>
+					<div class="p-field p-col-3">
+						<span class="p-float-label">
+							<input type="text" autocomplete="off" maxlength="40" required pInputText
+								id="nombre_beneficiario" [(ngModel)]="model.nombre_beneficiario"
+								(keyup)="removeSpecialCharactersNombre($event);" #nombre_beneficiario="ngModel"
+								[ngModelOptions]="{ standalone: true }" />
+							<label for="nombre_beneficiario">Nombre</label>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p-footer>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2">
+					<button pButton pRipple type="button" label="{{ GuardarOseleccionar }}" (click)="GuardarPersona()"
+						class="p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-col-1"></div>
+				<div class="p-col-1"></div>
+				<div class="p-col-1"></div>
+				<div class="p-col-1"></div>
+				<div class="p-col-2"></div>
+				<div class="p-col-3">
+					<button pButton pRipple type="button" label="Cerrar" (click)="CerrarModalPersona()"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+	</p-footer>
+</p-dialog>
+<p-dialog (onHide)="closeModal()" id="modalIngresoDocto" header=" " [(visible)]="mostrarIframe" [draggable]="false"
+	[resizable]="true" [modal]="true" [baseZIndex]="99999999999999" showEffect="fade"
+	[style]="{ width: '900px', minWidth: '900px' }" [contentStyle]="{ minHeight: '650px' }">
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<iframe [src]="urlSafeAperturaControlDocto" id="iframeRecepcion" frameborder="0" scrolling="no"
+				width="900px" height="650px"></iframe>
+		</div>
+	</div>
+</p-dialog>
+<div class="p-col-12" class="p-grid" *ngIf="guardoCorrectamente">
+	<div class="p-col-12">
+		<h1>INGRESO DE RETENCIÓN JUDICIAL</h1>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+	<div class="p-col-1"></div>
+	<div class="p-col-5">
+		<span class="negritatitulos">Beneficiario : {{ nombreBeneficiario }}</span>
+	</div>
+	<div class="p-col-3"></div>
+	<div class="p-col-3">
+		<span class="negritatitulos"> RUT : {{ rutBeneficiario }}</span>
+	</div>
+	<div class="p-col-12">
+		<div class="card cambioheight">
+			<h5></h5>
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-12"></div>
+				<div>
+					<div class="p-col-12">
+						<h4>{{ mensajeRjExitoso }}</h4>
+						<h4>Para terminar el proceso, Seleccione recepcionar documentos.</h4>
+					</div>
+					<div class="p-col-12"></div>
+					<div class="p-col-12">
+						<p-messages [value]="msgs"></p-messages>
+					</div>
+				</div>
+			</div>
+			<div class="p-field p-col-12"></div>
+		</div>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2" *ngIf="!esconderRecepcionExitoso">
+					<button pButton pRipple type="button" (click)="AbrirRecepcionDeDocumentos()"
+						label="Recepcionar Documentos" class="p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-col-2 p-offset-8">
+					<button pButton pRipple type="button" (click)="Volver()" label="Volver"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p-dialog header="¿Confirmacion Retencion Judicial?" [(visible)]="permiteIngreso" [draggable]="false"
+	[resizable]="false" [modal]="true" [baseZIndex]="999999999" showEffect="fade"
+	[style]="{ width: '400', minWidth: '400' }" [contentStyle]="{ minHeight: '400' }">
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+			<div class="p-col-12"></div>
+
+			<div class="p-col-12">
+				<span class="negritatitulos"> Estimado Usuario </span>
+				<div class="p-col-12">
+					<br />
+				</div>
+				<div class="p-col-12">
+					<br />
+				</div>
+				<div class="p-col-12">
+					<br />
+				</div>
+				<div class="p-col-12">
+					<span> ¡Está seguro de querer ingresar la retención judicial? </span>
+				</div>
+				<div class="p-col-5"></div>
+				<div class="p-col-2"></div>
+			</div>
+		</div>
+	</div>
+	<p-footer>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-2">
+					<button pButton pRipple type="button" label="Aceptar" (click)="IngresoRetencionJudicial()"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-field p-col-5"></div>
+				<div class="p-field p-col-2">
+					<button pButton pRipple type="button" label="Cancelar" (click)="permiteIngreso = false"
+						class="p-button-danger p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+	</p-footer>
+</p-dialog>

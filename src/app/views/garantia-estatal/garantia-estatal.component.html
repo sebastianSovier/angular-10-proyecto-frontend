@@ -1,0 +1,416 @@
+<div id="tablaPrincipalInicial" class="p-grid" *ngIf="validarIngreso; else validado">
+	<div class="p-col-12">
+		<h1>SOLICITUD GARANTÍA ESTATAL</h1>
+		<h5></h5>
+		<h5></h5>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+	<div class="p-col-12">
+		<div class="card cambioheight">
+			<h5></h5>
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12">
+					<p-messages [value]="msgs"></p-messages>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-2"></div>
+			<div class="p-col-2"></div>
+			<div class="p-col-2"></div>
+			<div class="p-col-2"></div>
+			<div class="p-col-2"></div>
+			<div class="p-col-2"></div>
+		</div>
+	</div>
+</div>
+<ng-template #validado>
+	<div id="tablaPrincipal" class="p-grid" *ngIf="GrupoPagoPoliza; else BeneficiarioGrupoPago">
+		<div class="p-col-12">
+			<h1>SOLICITUD GARANTÍA ESTATAL</h1>
+			<h5></h5>
+			<h4></h4>
+			<h5></h5>
+			<hr class="linea1-hr" />
+			<br />
+			<hr class="linea2-hr" />
+		</div>
+		<div class="p-grid table-demo">
+			<div class="p-col-12">
+				<div class="card">
+					<h4>GRUPO DE PAGO DE LA PÓLIZA - GARANTÍA ESTATAL</h4>
+					<p-table class="p-col-12" #dt [value]="ObtieneListaGrupoPagoBeneficiariosResponse"
+						[(selection)]="selectedBeneficiarios" dataKey="NAT_NUMRUT" styleClass="p-datatable-customers"
+						[rowHover]="true" [rows]="10" [paginator]="true" [filterDelay]="0"
+						[globalFilterFields]="['NAT_NOMBRE', 'NAT_NUMRUT']">
+						<ng-template pTemplate="caption">
+							<div class="table-header"></div>
+						</ng-template>
+						<ng-template pTemplate="header">
+							<tr>
+								<th style="width: 3rem"></th>
+								<th pSortableColumn="NAT_NOMBRE">
+									Representante
+									<p-sortIcon field="NOMBRE"></p-sortIcon>
+								</th>
+								<th pSortableColumn="NAT_NUMRUT">
+									RUT
+									<p-sortIcon field="NUMERORUT"></p-sortIcon>
+								</th>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="body" let-beneficiario>
+							<tr class="p-selectable-row">
+								<td>
+									<p-tableCheckbox [value]="beneficiario"></p-tableCheckbox>
+								</td>
+								<td>
+									<span class="p-column-title"></span> {{ beneficiario.NAT_NOMBRE }} {{
+									beneficiario.NAT_AP_PAT }}
+									{{ beneficiario.NAT_AP_MAT }}
+								</td>
+								<td><span class="p-column-title"></span> {{ beneficiario.NAT_NUMRUT }}-{{
+									beneficiario.NAT_DV }}</td>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="emptymessage">
+							<tr>
+								<td colspan="8">No hay beneficiarios asociados.</td>
+							</tr>
+						</ng-template>
+					</p-table>
+				</div>
+			</div>
+		</div>
+		<div class="p-field p-col-12">
+			<p-messages [value]="msgs"></p-messages>
+		</div>
+		<div class="p-field p-col-12"></div>
+		<div class="p-field p-col-12"></div>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2">
+					<button pButton pRipple type="button" (click)="CambioBeneficiarioGrupoPago()" label="Seleccionar"
+						class="p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>
+<ng-template #BeneficiarioGrupoPago>
+	<div id="tablaPrincipal2" class="p-grid">
+		<div class="p-col-12">
+			<h1>SOLICITUD GARANTÍA ESTATAL</h1>
+			<h5></h5>
+			<h4></h4>
+			<h5></h5>
+			<hr class="linea1-hr" />
+			<br />
+			<hr class="linea2-hr" />
+		</div>
+		<div class="p-grid table-demo" *ngIf="ingresoValido">
+			<div class="p-col-12">
+				<div class="card">
+					<h4>GARANTÍA ESTATAL - SELECCIÓN DE BENEFICIARIOS GRUPO PAGO</h4>
+					<p-table #dtt class="p-col-12" [value]="listaGrupoPagoResponse" [(selection)]="selectedGrupoPago"
+						dataKey="NAT_NUMRUT" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10"
+						[paginator]="true" [filterDelay]="0"
+						[globalFilterFields]="['NAT_AP_PAT', 'NAT_NUMRUT', 'DESC_RELACION', 'BNF_GRP_PAG']">
+						<ng-template pTemplate="caption">
+							<div class="table-header"></div>
+						</ng-template>
+						<ng-template pTemplate="header">
+							<tr>
+								<th style="width: 3rem"></th>
+								<th pSortableColumn="NAT_AP_PAT">
+									Beneficiarios
+									<p-sortIcon field="NAT_AP_PAT"></p-sortIcon>
+								</th>
+								<th pSortableColumn="NAT_NUMRUT">
+									Rut
+									<p-sortIcon field="NAT_NUMRUT"></p-sortIcon>
+								</th>
+								<th pSortableColumn="DESC_RELACION">
+									Relacion
+									<p-sortIcon field="DESC_RELACION"></p-sortIcon>
+								</th>
+								<th pSortableColumn="BNF_GRP_PAG">
+									Estado GE
+									<p-sortIcon field="BNF_GRP_PAG"></p-sortIcon>
+								</th>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="body" let-grupoPago>
+							<tr class="p-selectable-row">
+								<td *ngIf="grupoPago.NAT_NUMRUT === 1 && grupoPago.NAT_DV === 9; else valido">NH</td>
+								<ng-template #valido>
+									<td>
+										<p-tableCheckbox [value]="grupoPago"> </p-tableCheckbox>
+									</td>
+								</ng-template>
+								<td>
+									<span class="p-column-title"></span> {{ grupoPago.NAT_AP_PAT }} {{
+									grupoPago.NAT_AP_MAT }}
+									{{ grupoPago.NAT_NOMBRE }}
+								</td>
+								<td><span class="p-column-title"></span>{{ grupoPago.NAT_NUMRUT }}-{{ grupoPago.NAT_DV
+									}}</td>
+								<td><span class="p-column-title"></span>{{ grupoPago.ID_RELACION }}: {{
+									grupoPago.DESC_RELACION }}</td>
+								<td><span class="p-column-title"></span> {{ grupoPago.ESTADOGE }} : {{
+									grupoPago.DESCRIPCIONESTADOGE }}</td>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="emptymessage">
+							<tr>
+								<td colspan="8">No existen beneficiarios grupo pago</td>
+							</tr>
+						</ng-template>
+					</p-table>
+				</div>
+			</div>
+		</div>
+		<div class="p-col-12" *ngIf="generoRemesable">
+			<p-messages [value]="msgs"></p-messages>
+		</div>
+		<div class="p-col-12" *ngIf="generoRemesable">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2" *ngIf="!muestraMensajeTramiteExitoso && ingresoValido">
+					<button pButton pRipple type="button" (click)="ValidaIngresoGe()" label="Ingresar Solicitud"
+						class="p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-col-2" *ngIf="muestraMensajeTramiteExitoso">
+					<button pButton pRipple type="button" (click)="ValidaIngresoGe()" label="Ver Solicitud"
+						class="p-mr-2 p-mb-2"></button>
+				</div>
+				<div class="p-col-8"></div>
+				<div class="p-col-2">
+					<button pButton pRipple type="button" (click)="volverTablaBeneficiarios()" label="Volver"
+						class="p-mr-2 p-mb-2"></button>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="!generoRemesable">
+			<div class="p-col-12">
+				<p-messages [value]="msgs"></p-messages>
+			</div>
+			<div class="p-col-12">
+				<h4>Para terminar el proceso, Seleccione recepcionar documentos.</h4>
+			</div>
+			<div class="p-col-12">
+				<button pButton pRipple type="button" (click)="AbrirRecepcionDeDocumentos()"
+					label="Recepcionar Documentos" class="p-mr-2 p-mb-2"></button>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<p-dialog id="modalgarantia" header=" " [(visible)]="displayDeclaracionJuradaSolicitud" [draggable]="false"
+	[resizable]="false" [modal]="true" [baseZIndex]="999999999" showEffect="fade"
+	[style]="{ width: '900px', minWidth: '900px' }" [contentStyle]="{ minHeight: '650px' }">
+	<div class="p-col-12">
+		<div id="formImprimir" class="p-fluid p-formgrid p-grid">
+			<div class="p-col-1"></div>
+			<div class="p-col-11" *ngIf="esSolicitud">
+				<h4 class="negritatitulos">Solicitud de Garantía Estatal - Declaración Jurada Simple</h4>
+				<br />
+			</div>
+			<div class="p-col-11" *ngIf="esActualizacion">
+				<h4 class="negritatitulos">Actualización Anual de Garantía Estatal año {{ ano_solicitud }} - Declaración
+					Jurada Simple</h4>
+				<br />
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				En {{ ciudad_documento }}, a {{ fecha_hoy }}, yo, don(ña) {{ nombre_beneficiario }}, RUT {{
+				rut_beneficiario }} , de nacionalidad
+				{{ nacionalidad }} , de estado civil {{ estado_civil }} , de profesión {{ profesion }} , domiciliado en
+				{{ calle_domicilio }}, comuna
+				de {{ comuna }} , provincia {{ provincia }} , telefonos {{ telefono_fijo }} {{ telefono_celular }} ,
+				solicito el beneficio de la
+				Garantía Estatal para financiar X mi pension, ..... la pension de mis hijos, ..... la pensión de mis
+				representados, por lo cual
+				declaro bajo juramento lo siguiente:
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				1. Que las personas para las cuales solicito del beneficio no son pensionados de ninguna institución
+				previsional del régimen antiguo
+				(INP, DIPRECA, CAPREDENA).
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				2. Que a esta fecha, ninguno de ellos percibe rentas ni remuneraciones imponibles que, en conjunto, sean
+				iguales o superiores a la
+				Pension Mínima.
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				3. Que los hijos del afiliado(a) fallecido(a) don(ña) {{ nombre_causante }}, RUT {{ rut_causante }}
+				descritos en el cuadro siguiente
+				son solteros.
+			</div>
+			<div class="p-field p-col-12 fontsize">No Tiene Hijos</div>
+			<div class="p-field p-col-12 fontsize">4. Que conozco el monto de la Pensión Mínima vigente a esta fecha
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				5. Que en caso que estas pensiones, rentas o remuneraciones imponibles pasen a ser iguales o superiores
+				al monto de la pensión mínima
+				vigente, me comprometo a dar aviso oportuno de dicha situación a Compañía de Seguros Confuturo S.A , con
+				el objeto de no percibir, en
+				forma indebida, el beneficio antes mencionado.
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				6. Finalmente, declaro estar en pleno conocimiento de las acciones legales que, en virtud de lo
+				dispuesto en el articulo 13 del D.L.
+				3.500 de 1980 y en el articulo 467 del Código Penal, se pueden interponer en mi contra, si percibiere
+				indebidamente este beneficio,
+				ocultando ingresos, proporcionando antecedentes falsos o contraviniendo de cualquier forma lo dispuesto
+				en el articulo 80 del D.L.
+				3.500 de 1980, ya sea por mala fe, culpa o dolo.
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				Además, me obligo a restituir todas las sumas indebidamente percibidas por concepto de Garantía Estatal
+				y cualquier otro beneficio que
+				se genere a raíz del derecho a ésta, entendiendose la presente Declaración Jurada Simple, como una
+				confesión de deuda, en los términos
+				del articulo 435 del Código de Procedimiento Civil, en el evento de que se me acredite que las sumas
+				recibidas por concepto de
+				Garantía Estatal fueron percibidas indebidamente. En el caso de que no me corresponda por cualquier
+				circunstancia , percibir pensión,
+				faculto a Compañía de Seguros Confuturo S.A , para que practique descuentos mensuales equivalentes a un
+				10% del valor de la pensión
+				mensual respectiva, cuando proceda.
+			</div>
+			<div class="p-field p-col-12 fontsize">
+				También, autorizo a Compañía de Seguros Confuturo S.A para que requiera los antecedentes que estime
+				necesarios, con el sólo objeto de
+				verificar el cumplimiento de los requisitos para acceder al beneficio de la Garantía Estatal, tanto de
+				las Administradoras de Fondos
+				de Pensiones, de otras Aseguradoras, del Servicio de Impuestos Internos y de otras instituciones.
+				<br />
+				<br />
+				<br />
+				<br />
+			</div>
+
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2"></div>
+				<div class="p-col-4">
+					<span class="">
+						<label
+							class="fuenteboleta1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------</label>
+					</span>
+				</div>
+				<div class="p-col-4 p-offset-2">
+					<span class="">
+						<label class="fuenteboleta1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							-------------------------------------</label>
+					</span>
+				</div>
+				<div class="p-col-3"></div>
+				<div class="p-col-4">
+					<span class="fontsize">
+						<label class="fuenteboleta1">Firma del Solicitante </label>
+					</span>
+					<span class="fontsize">
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp; <label class="fuenteboleta1">{{ rut_solicitante }} </label>
+					</span>
+				</div>
+				<div class="p-col-2"></div>
+				<div class="p-col-3">
+					<span class="fontsize">
+						<label class="fuenteboleta1">Firma representante Compañia de Seguros Confuturo S.A. </label>
+					</span>
+				</div>
+				<div class="p-col-3"></div>
+				<div class="p-col-4"></div>
+				<div class="p-col-2"></div>
+				<div class="p-col-3">
+					<label> {{ nombre_ejecutivo }}</label>
+				</div>
+				<div class="p-col-7"></div>
+				<div class="p-col-9"></div>
+				<div class="p-col-3 fontsize">
+					<label> R.U.T.:{{ rut_ejecutivo }}</label>
+				</div>
+				<div class="p-col-9"></div>
+				<div class="p-col-3">
+					<label> Sucursal: {{ sucursal_empresa }} </label>
+				</div>
+			</div>
+			<div class="p-col-3 fontsize">Póliza: {{ poliza }}</div>
+			<div class="p-col-6">
+				<span class="">
+					<svg jsbarcode jsbarcode-height="70" [attr.jsbarcode-value]="codigo_barra"
+						[attr.jsbarcode-displayvalue]="false"></svg>
+				</span>
+			</div>
+			<div class="p-col-12 fontsize" *ngIf="muestraMensajeTramiteExitoso">El Tramite ha Sido Procesado
+				Correctamente</div>
+		</div>
+	</div>
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<div class="p-col-2" *ngIf="!ingresoExitoso">
+				<button pButton pRipple type="button" label="Guardar" (click)="IngresaActualizaSolicitudGe()"
+					class="p-mr-2 p-mb-2"></button>
+			</div>
+			<div class="p-col-2" *ngIf="ingresoExitoso">
+				<button pButton pRipple type="button" label="Imprimir" (click)="ImprimirBoleta()"
+					class="p-mr-2 p-mb-2"></button>
+			</div>
+			<div class="p-col-2 p-offset-8">
+				<button pButton pRipple type="button" (click)="cerrarModalDeclaracion()" label="Cerrar"
+					class="p-button-danger p-mr-2 p-mb-2"></button>
+			</div>
+		</div>
+	</div>
+</p-dialog>
+
+<p-dialog (onHide)="closeModal()" id="modalIngresoDocto" header=" " [(visible)]="mostrarIframe" [draggable]="false"
+	[resizable]="true" [modal]="true" [baseZIndex]="99999999999999" showEffect="fade"
+	[style]="{ width: '900px', minWidth: '900px' }" [contentStyle]="{ minHeight: '650px' }">
+	<div class="p-col-12">
+		<div class="p-fluid p-formgrid p-grid">
+			<iframe [src]="urlSafeAperturaControlDocto" id="iframeRecepcion" frameborder="0" scrolling="no"
+				width="900px" height="650px"></iframe>
+		</div>
+	</div>
+</p-dialog>
+
+<p-dialog id="modalValidaSolicitudGe" header=" " [(visible)]="permiteIngreso" [draggable]="false" [resizable]="true"
+	[modal]="true" [baseZIndex]="999999999" showEffect="fade" [style]="{ width: '900px', minWidth: '900px' }"
+	[contentStyle]="{ minHeight: '650px' }">
+	<div class="p-grid">
+		<div class="p-col-12">
+			<h1>SOLICITUD GARANTÍA ESTATAL</h1>
+			<h5></h5>
+			<h5></h5>
+			<hr class="linea1-hr" />
+			<br />
+			<hr class="linea2-hr" />
+		</div>
+		<div class="p-col-12">
+			<div class="card cambioheight">
+				<h5></h5>
+				<div class="p-fluid p-formgrid p-grid">
+					<div class="p-field p-col-12"></div>
+					<div class="p-field p-col-12"></div>
+					<div class="p-field p-col-12"></div>
+					<div class="p-field p-col-12"></div>
+					<div class="p-field p-col-12"></div>
+					<div class="p-field p-col-12">
+						<p-messages [value]="msgs"></p-messages>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</p-dialog>

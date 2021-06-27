@@ -1,0 +1,13 @@
+{
+    "SuccessCode": "1",
+    "ErrorCodeCatch": "99",
+    "UrlWebApi": "http://localhost:54109",
+    "UrlAbrirControlDocumentos": "http://192.168.154.51:73/ControlDocumentos/Documentos/RecepcionDocumentos",
+    "UrlRespuestaControlDocumentos": "http://192.168.154.51:73/ControlDocumentos/Documentos/GetNumRemesableGeneradoDet",
+    "CertificadoMedicoMensaje1": "La duracion maxima del poder es de 1 mes, desde la fecha de Supcripción.",
+    "CertificadoMedicoMensaje2": "La fecha de Suscripcion debe corresponder al mismo mes que la fecha de Notificación.",
+    "PoderesGeneralesMensaje1": "La duración máxima del poder es de 2 años, desde la fecha de Suscripción.",
+    "PoderesGeneralesMensaje2": "La diferencia entre la fecha de Suscripcion y Notificacion no debe ser mayora 6 meses.",
+    "OtrosPoderesMensaje1": "La duración máxima del poder es de 2 años, desde la fecha de Suscripción o Renovación.",
+    "OtrosPoderesMensaje2": "Los documentos notariales no deben tener una antigüedad mayor a 6 meses. En tal caso, debe Suscribir o Renovar un nuevo Poder o Mandato."
+}

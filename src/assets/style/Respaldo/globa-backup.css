@@ -1,0 +1,499 @@
+/* Navigation Style settings */
+
+/*@@@@@@@@@@ removed .firstlevenav class @@@@@@@*/
+
+/*Different font size for NS4 - see v5_nav.css for IE5 and NS6+ setting */
+
+/*@@@@@@@@@@ Increased margin-bottom @@@@@@*/
+.secondlevelnav a {
+	font-family:verdana,arial;
+	font-size:11px;
+	color:#000063;
+	text-decoration:none;
+	margin-left:5px;
+	margin-top:3px;
+	line-height:13px;
+	margin-bottom:4px;
+	z-index:7;
+	vertical-align:top;
+}
+
+
+.secondlevelnav a:hover {
+	color:#3366ff;
+	text-decoration:none;
+}
+
+/*Different font size for NS4 - see v5_nav.css for IE5 and NS6+ setting */
+.thirdlevelnav a {
+	font-family:verdana,arial;
+	font-size:11px;
+	color:#000063;
+	text-decoration:none;
+	margin-left:5px;
+	margin-top:3px;
+	line-height:13px;
+	margin-bottom:3px;
+	z-index:7;
+	vertical-align:top;
+}
+
+.thirdlevelnav a:hover {
+	color:#3366ff;
+	text-decoration:none;
+}
+/*@@@@@ removed top/bottom margin @@@@@*/
+.close {
+	font-family:verdana,arial;
+	font-size:10px;
+	color:#3366ff;
+	text-decoration:none;
+	margin-left:15px;
+}
+/* End Navigation Style settings */
+
+
+
+/*Global Styles*/
+
+	/* Sets body with no margin or padding */
+body {
+	margin:0px;
+	padding:0px;
+	background-repeat: no-repeat
+}
+
+/*@@@@@@@@@@ Added style for input and select elements @@@@@@@@@@@@@@*/
+input,select {
+	font-family:verdana,arial;
+	font-size:10px;
+}
+
+
+a {
+	font-family:verdana,arial;
+	color:#ff6500;
+	}
+
+.smallText {
+	font-family:verdana,arial;
+	font-size:8px;
+	color:#000;
+	font-weight:normal;
+}
+
+/* @@@@@@@@@@@@@ this style added to allow bold in NS4 style added @@@@@@@@@@@@ */
+.smallText b {
+font-weight:bold;
+}
+
+.smallTextalt {
+	font-family:verdana,arial;
+	font-size:10px;
+	color:#006;
+	font-weight:normal;
+}
+
+
+/* Styles for brand intranet */
+
+
+/*Main style for body content*/
+p, .body, ul {
+	font-family:verdana,arial;
+	color:#000;
+	font-size:12px;
+	list-style-type: square
+	}
+
+
+#logo {
+	margin-top:14px;
+}
+
+.updated {
+	font-family:verdana,arial;
+	font-size:10px;
+	color:#999;
+	text-align:right;
+}
+
+.date {
+	font-family:verdana,arial;
+	color:#000;
+	font-size:10px;
+	}
+
+.altdate {
+	font-family:verdana,arial;
+	color:#fff;
+	font-size:10px;
+	}
+
+.header {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:12px;
+	font-weight:bold;
+	}
+
+.altsubheader {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:12px;
+	font-weight:bold;
+	font-style:italic;
+	}
+
+td.tableHd {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+	font-weight:bold;
+}
+
+/* @@@@@@@@ Add new class here @@@@@@@*/
+td.tableHdalt {
+	font-family:verdana,arial;
+	color:#fff;
+	font-size:10px;
+	font-weight:bold;
+}
+td.tableBd {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+	font-weight:bold;
+}
+
+/* @@@@@@@@ Add new class here @@@@@@@*/
+td.tableBdalt {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+}
+td.tableBdaltMasChica {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:8px;
+}
+
+td.tableBdalt a {
+	font-family:verdana,arial;
+	font-size:10px;
+	font-weight:normal;
+}
+/* @@@@@@@@@@@@@ tabletext style added @@@@@@@@@@@@ */
+.tabletext {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:12px;
+}
+
+.imageTxt {
+	font-family:verdana,arial;
+	color:#000;
+	font-size:10px;
+}
+
+.bodyalt {
+	font-family:verdana,arial;
+	color:#000;
+	font-size:12px;
+	font-weight:bold;
+	}
+
+.introbody {
+	font-family:verdana,arial;
+	color:#000;
+	font-size:12px;
+	font-style:italic;
+	}
+
+.bodylink {
+	font-family:verdana,arial;
+	color:#ff6500;
+	font-size:10px;
+	font-weight:bold;
+}
+
+.shortcut a,.shortcut {
+	font-family:verdana,arial;
+	color:#ff6500;
+	font-size:10px;
+	font-weight:bold;
+	margin-bottom:3px;
+}
+
+
+
+.breadcrumb {
+	font-family:verdana,arial;
+	color:#999;
+	font-size:10px;
+	font-weight:bold;
+}
+
+
+.breadcrumbSel, .breadcrumbSel a {
+	font-family:verdana,arial;
+	color:#ff6500;
+	font-size:10px;
+	font-weight:bold;
+	text-decoration:none;
+}
+/* @@@@@@@@@@@@@ fullsearch + fullsearchSel style added @@@@@@@@@@@@ */
+.fullsearch  {
+	font-family:verdana,arial;
+	color:#ccc;
+	font-size:10px;
+}
+
+.fullsearch a  {
+	font-family:verdana,arial;
+	color:#ff6500;
+	font-size:10px;
+}
+
+.fullsearch .fullsearchSel {
+	font-family:verdana,arial;
+	color:#ccc;
+	font-size:10px;
+}
+
+.fourthlevelHd {
+	font-family:verdana,arial;
+	color:#999;
+	font-size:10px;
+	font-weight:bold;
+}
+
+.fourthlevel a,.fourthlevel {
+	font-family:verdana,arial;
+	color:#ff6500;
+	font-size:10px;
+	margin-bottom:2px;
+	font-weight:bold;
+}
+
+
+
+/*Portal styles*/
+.altHeader {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.jumpboxHeader,.jumpboxHeader a  {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+	font-weight:bold;
+	margin:0px;
+	margin-top:15px;
+}
+
+.jumpboxOp {
+	margin:0px 0px 4px 0px;
+}
+
+.jumpboxOp a {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+}
+.search {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+	font-weight:bold;
+}
+
+span img {
+	display:inline;
+}
+.boton {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #ff6600;
+	border: none;
+	text-align: center;
+
+}
+.boton-gris {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #CCCCCC;
+	border: none;
+	text-align: center;
+}
+.bordeTabla {
+	border: 1px solid #c2dbf8;
+}
+.subtitTabla {
+
+	font-family:verdana, arial;
+	color:#96C2F3;
+	font-size:10px;
+	font-weight:bold;
+}
+.textoCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: justify;
+}
+.tituloCertificado{
+	font-family:Times New Roman;
+	font-size:14.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: center;
+}
+.encabezadoTablaCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:100%;
+	padding:0cm;
+	border-width:1px;
+	font-weight:bold;
+	text-align: center;
+}
+.textoTablaCertificado{
+	font-family:Times New Roman;
+	font-size:10.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: center;
+}
+.textoTablaCertificadoR{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: right;
+}
+.textoTablaCertificadoL{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: left;
+}
+.textoDestacadoCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: left;
+}
+.itemCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: right;
+}
+.bordeTablaCertificado {
+	border: 1px solid em #000000;
+}
+.textoCertificadoChico{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	text-align: right;
+}
+.textoCertificadoChicoL{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	text-align: left;
+}
+.textoCertificadoChicoLBlanco{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	text-align: left;
+	color: #ffffff;
+	background-color: #888888;
+}
+.textoCertificadoChicoBlanco{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	color: #ffffff;
+	background-color: #888888;
+}
+.bordeTablaOK {
+	border: 1px solid #c2dbf8;
+}
+.bordeTablaErrorGrave {
+	border: 1px solid #ff0000;
+}
+.textoFechaCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+}
+.bordeTablaErrorMedio {
+	border: 1px solid #ffff00;
+}
+td.tableBdalt2 {
+	font-family:verdana,arial;
+	color:#006;
+	font-size:10px;
+}
+td.tableHdalt2 {
+	font-family:verdana,arial;
+	color:#fff;
+	font-size:10px;
+	font-weight:bold;
+}
+.bordeTablaExito {
+	border: 1px solid #0000ff;
+}
+.textoDestacadoCertificadoING{
+	font-family:Times New Roman;
+	font-size:16.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: left;
+}
+td.tableHdalt3 {
+	font-family:verdana,arial;
+	color:#595959;
+	font-size:10px;
+	font-weight:bold;
+}

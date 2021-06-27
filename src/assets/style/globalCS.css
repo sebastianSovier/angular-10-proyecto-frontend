@@ -1,0 +1,804 @@
+/* Navigation Style settings */
+
+/*@@@@@@@@@@ removed .firstlevenav class @@@@@@@*/
+
+/*Different font size for NS4 - see v5_nav.css for IE5 and NS6+ setting */
+
+/*@@@@@@@@@@ Increased margin-bottom @@@@@@*/
+
+.error{
+	border: 5px solid red;
+	font:11px  Arial, Helvetica, sans-serif;
+	text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #E9E9E9;
+}
+
+.alerta{
+	border: 5px solid #F8DA96;
+	font:11px  Arial, Helvetica, sans-serif;
+	text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #E9E9E9;
+}
+
+.ok{
+	border: 5px solid #ADBEAF;
+	font:11px  Arial, Helvetica, sans-serif;
+	text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #E9E9E9;
+}
+
+.notas{
+	border: 1px solid #ADBEAF;
+	font:11px  Arial, Helvetica, sans-serif;
+	text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    /*background-color: #E9E9E9;*/
+}
+
+.secondlevelnav a {
+	font:11px  Arial, Helvetica, sans-serif;
+	color:#000063;
+	text-decoration:none;
+	margin-left:5px;
+	margin-top:3px;
+	line-height:13px;
+	margin-bottom:4px;
+	z-index:7;
+	vertical-align:top;
+}
+
+.titulo_corp_verde{
+	font-weight: bold;
+	/*color: #7AC142;*/
+	color:#7AC142;
+}
+
+.secondlevelnav a:hover {
+	color:#7AC142;
+	text-decoration:none;
+}
+
+/*Different font size for NS4 - see v5_nav.css for IE5 and NS6+ setting */
+.thirdlevelnav a {
+	font:11px  Arial, Helvetica, sans-serif;
+	color:#000063;
+	text-decoration:none;
+	margin-left:5px;
+	margin-top:3px;
+	line-height:13px;
+	margin-bottom:3px;
+	z-index:7;
+	vertical-align:top;
+}
+
+.thirdlevelnav a:hover {
+	color:#7AC142;
+	text-decoration:none;
+}
+/*@@@@@ removed top/bottom margin @@@@@*/
+.close {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#cdcbcc;
+	text-decoration:none;
+	margin-left:15px;
+}
+/* End Navigation Style settings */
+
+
+
+/*Global Styles*/
+
+
+
+/*@@@@@@@@@@ Added style for input and select elements @@@@@@@@@@@@@@*/
+input,select {
+	font:10px  Arial, Helvetica, sans-serif;
+}
+
+
+
+.smallText {
+	font:normal 8px  Arial, Helvetica, sans-serif;
+	color:#000;
+}
+
+/* @@@@@@@@@@@@@ this style added to allow bold in NS4 style added @@@@@@@@@@@@ */
+.smallText b {
+font-weight:bold;
+}
+
+.smallTextalt {
+	font:normal 10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+
+
+/* Styles for brand intranet */
+
+
+/*Main style for body content*/
+
+h1 {
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 3px;
+	border-top-width: 2px;
+	border-top-style: solid;
+	/*border-top-color: #858d96;*/
+	border-top-color: #999999;
+	/*color: #7AC142;*/
+	color:#7AC142;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 15px;
+	margin-right: 0px;
+	margin-bottom: 15px;
+	margin-left: 0px;
+}
+
+p {
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 7px;
+	margin-left: 0px;
+	line-height: 16px;
+}
+
+#logo {
+	margin-top:14px;
+}
+
+.updated {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#999;
+	text-align:right;
+}
+
+.date {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#000;
+}
+
+.altdate {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+
+.header {
+	font:bold 12px  Arial, Helvetica, sans-serif;
+	color:#626262;
+}
+
+.altsubheader {
+	font:bold italic 12px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+
+
+.imageTxt {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#000;
+}
+
+
+.shortcut a,.shortcut {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#7AC142;
+	margin-bottom:3px;
+}
+
+
+
+.breadcrumb {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#999;
+}
+
+
+.breadcrumbSel, .breadcrumbSel a {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#7AC142;
+	text-decoration:none;
+}
+/* @@@@@@@@@@@@@ fullsearch + fullsearchSel style added @@@@@@@@@@@@ */
+.fullsearch  {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#ccc;
+}
+
+.fullsearch a  {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#7AC142;
+}
+
+.fullsearch .fullsearchSel {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#ccc;
+}
+
+.fourthlevelHd {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#999;
+}
+
+.fourthlevel a,.fourthlevel {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#7AC142;
+	margin-bottom:2px;
+}
+
+
+
+/*Portal styles*/
+.altHeader {
+	font:bold 12px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+
+.jumpboxHeader,.jumpboxHeader a  {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#006;
+	margin:0px;
+	margin-top:15px;
+}
+
+.jumpboxOp {
+	margin:0px 0px 4px 0px;
+}
+
+.jumpboxOp a {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+.search {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+
+span img {
+	display:inline;
+}
+
+.controles ul {
+	list-style-type:none;
+	overflow: hidden;
+    padding: 0;
+    margin:0;
+}
+.controles ul li {
+	float:left;
+}
+.controles ul li input {
+	display:block;
+	margin-left:10px;
+	margin-bottom:10px;
+}
+
+.boton {
+	font: bold 10px  Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color:#7AC142; /*#7AC142;*/
+	border: none;
+	text-align: center;
+	padding: 3px 8px;
+	display: inline-block;
+	cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+
+.boton_nohabilitado {
+	font: bold 10px  Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color:#7AC142; /*#E8473E;*/
+	border: none;
+	text-align: center;
+	padding: 3px 8px;
+	display: inline-block;
+	cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.boton-gris {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color: #5a5a5a;
+	border: none;
+	text-align: center;
+	padding: 3px 8px;
+	display: inline-block;
+	cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.textoCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: justify;
+}
+
+.tituloCertificado{
+	font-family:Times New Roman;
+	font-size:14.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: center;
+}
+
+
+.tituloCertificadoNN{
+	font-family:Times New Roman;
+	font-size:14.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: center;
+}
+
+.textoCertificadoGE{
+	font-family:Times New Roman;
+	font-size:9.0pt;
+	line-height:120%;
+	border:none;
+	padding:0cm;
+	text-align: justify;
+}
+
+.tituloCertificadoGE{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	font-weight:bold;
+	border:none;
+	padding:0cm;
+	text-align: center;
+}
+
+.encabezadoTablaCertificadoGE{
+	font-family: Times New Roman;
+	font-size: 9.0pt;
+	line-height: 100%;
+	padding: 0cm;
+	border-width: 1px;
+	background: #D3D3D3;
+}
+
+.textoTablaCertificadoGE{
+	font-family: Times New Roman;
+	font-size: 9.0pt;
+	line-height: 100%;
+	border: 1px solid #000000;
+	padding: 0cm;
+	font-weight: normal;
+	text-align: center;
+}
+
+
+.textoChicoCertificadoGE{
+	font-family: Times New Roman;
+	font-size: 8.0pt;
+	line-height: 100%;
+	padding: 0cm;
+	font-weight: normal;
+	text-align: left;
+} 
+
+
+.textoFirmaCertificadoGE{
+	font-family:Times New Roman;
+	font-size:10.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: center;
+}
+
+.encabezadoTablaCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:100%;
+	padding:0cm;
+	border-width:1px;
+	font-weight:bold;
+	text-align: center;
+}
+
+
+.encabezadoTablaCertificado2{
+	font-family:Times New Roman;
+	font-size:11.0pt;
+	line-height:100%;
+	padding:0cm;
+	border-width:1px;
+	font-weight:bold;
+	text-align: center;
+}
+
+.textoTablaCertificado{
+	font-family:Times New Roman;
+	font-size:10.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: center;
+}
+.textoTablaCertificadoR{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: right;
+}
+.textoTablaCertificadoL{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:100%;
+	border:none;
+	padding:0cm;
+	font-weight:normal;
+	text-align: left;
+}
+.textoDestacadoCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: left;
+}
+
+
+.textoDestacadoCertificado2{
+	font-family:Times New Roman;
+	font-size:10.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: left;
+}
+
+
+.textoDestacadoCertificado3{
+	font-family:Times New Roman;
+	font-size:11.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: left;
+}
+
+.itemCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: right;
+}
+
+.textoCertificadoChico{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	text-align: right;
+}
+.textoCertificadoChicoL{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	text-align: left;
+}
+.textoCertificadoChicoLBlanco{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	text-align: left;
+	color: #ffffff;
+	background-color: #999999;
+}
+.textoCertificadoChicoBlanco{
+	font-family:Times New Roman;
+	font-size:8.0pt;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	color: #ffffff;
+	background-color: #999999;
+}
+
+.textoFechaCertificado{
+	font-family:Times New Roman;
+	font-size:12.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+}
+
+.textoDestacadoCertificadoING{
+	font-family:Times New Roman;
+	font-size:16.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: left;
+}
+
+BR.saltoPag { page-break-after: always }
+
+
+.textoTituloMandatoING{
+	font-family:Arial;
+	font-size:11.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-align: center;
+}
+
+.textoMandatoING{
+	font-family:Arial;
+	font-size:11.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	text-align: justify;
+}
+
+
+.textoSubMandatoING{
+	font-family:Arial;
+	font-size:11.0pt;
+	line-height:110%;
+	border:none;
+	padding:0cm;
+	font-weight:bold;
+	text-decoration: underline;
+	text-align: justify;
+}
+/*@@@@@@@@@@ tablas tipo formulario @@@@@@@@@@@@@@*/
+.tabla {
+	padding: 0px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999999;/*#7AC142;*/
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;/*#7AC142;*/
+	width: 95%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+.tabla th {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #999999;/*#7AC142;*/
+	margin: 0px;
+	padding: 2px;
+}
+.tabla td {
+	margin: 0px;
+	padding: 2px;
+	background-color: #F5F5F5;
+}
+.centrado {
+	text-align: center;
+}
+
+/* @@@@@@@@ otras caracteristicas para tablas @@@@@@@*/
+
+td.tableHd {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#006;
+	background-color:#f5f5f5; /*#7AC142;*/
+	/*#f5f5f5;*/
+}
+
+td.tableHdalt {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color: #999999;/*#cdcbcc;*/
+}
+td.tableBd {	
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 2px;
+	background-color: #f5f5f5;
+	
+}
+
+td.tableBdList {	
+	font: 10px  Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 2px;
+	background-color: #f5f5f5;
+	
+}
+
+td.tableBdalt {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+td.tableBdaltMasChica {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+
+td.tableBdalt a {
+	font:10px  Arial, Helvetica, sans-serif;
+}
+
+.tabletext {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+
+td.tableBdalt2 {
+	font:10px  Arial, Helvetica, sans-serif;
+	color:#006;
+}
+td.tableHdalt2 {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+.bordeTablaExito {
+	border: 1px solid #7AC142;
+}
+ 
+.bordeTablaCertificado {
+	border: 1px solid #000000;
+}
+.altoTablaSeparacion{
+	line-height:20%;
+}
+
+td.tableHdalt3 {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	color:#595959;
+}
+
+.bordeTablaOK {
+	border: 1px solid #999999;
+	/*#7AC142;*/
+}
+
+/*Errores*/
+
+.bordeTablaErrorMedio {
+	border: 1px solid #cdcbcc;
+}
+.bordeTablaErrorGrave {
+	border: 1px solid #7AC142;
+}
+
+.bordeTabla {
+	border: 1px solid #999999;
+	/*#cdcbcc;*/
+}
+.subtitTabla {
+	font:bold 10px  Arial, Helvetica, sans-serif;
+	/*color:#7AC142;*/
+	color:#7AC142;
+}
+
+
+.subtituloLigth {
+	font:bold 11px  Arial, Helvetica, sans-serif;
+	/*color:#E8473E;*/
+	color:#000000;
+}
+
+
+/*@@@@@@@@@@ propiedades genericas @@@@@@@@@@@@@@*/
+ul {
+	font:12px  Arial, Helvetica, sans-serif;
+	color:#000;
+	list-style-type: square
+}
+
+a {
+	color: #5a5a5a;
+	text-decoration: none;
+}
+a:visited {
+	color: #5a5a5a;
+	text-decoration: none;
+}
+a:hover {
+	color: #858585;
+	text-decoration: underline;
+}
+
+/**
+Elemenjos JQuery
+*/
+
+#popupRevisarFormaPago {
+	display: none;
+}
+
+/*
+Dialogs
+*/
+
+.ui-dialog {
+	font-size: 12px;
+}
+
+/*
+Datepicker
+*/
+
+.ui-datepicker {
+	font-size: 11px;
+    width: 15em;
+}
+
+
+
+.divError {
+    padding: 10px;
+    display:block;
+    z-index: 100000;
+    background: #7AC142;
+    color: #fff;
+    margin: 15px 20 15px 0;
+	font:12px  Arial, Helvetica, sans-serif;
+    overflow:hidden;
+}
+.divError i {
+    display: block;
+    float: left;
+    font-size: 24px;
+    padding: 4px 8px 0 0;
+    width: 20px;
+}
+.divError p {
+    float: left;
+    display: block;
+    color: #fff;
+    font-size: 14px !important;
+    line-height: 0 !important;
+    padding: 14px;
+}
+
+.iconoCDoc {
+    background-image: url('../images/iconoCdoc.png');
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 22px;
+    border: none;
+    background-color: #FFFFFF;
+    background-size: cover;
+}

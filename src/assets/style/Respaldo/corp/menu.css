@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+#menuLat .selec {
+	font-weight: bold;
+	color: #7AC142;
+}
+#menuLat .selec a {
+	font-weight: bold;
+	color: #7AC142;
+}
+#menuLat .selec a:visited {
+	font-weight: bold;
+	color: #7AC142;
+}
+#menuLat .selec a:hover {
+	font-weight: bold;
+	color: #7AC142;
+}
+#latAbajo {
+	background-image: url(../images/interior/latAbajo.gif);
+	background-repeat: no-repeat;
+	width: 165px;
+	padding-top: 25px;
+	padding-right: 23px;
+	padding-bottom: 25px;
+	padding-left: 22px;
+	background-position: bottom;
+}
+#submenu {
+	margin: 0px;
+	width: 210px;
+	background-image: url(../images/interior/lat.gif);
+	background-repeat: no-repeat;
+	padding: 0px;
+}
+#submenu ul {
+	display: block;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+#submenuNav {
+	margin: 0px;
+	padding: 0px;
+
+}
+#submenuNav li {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+/*#submenuNav li.ultimo{
+	border:none;
+}*/
+#submenuNav a {
+	color: #666666;
+	text-decoration: none;
+}
+#submenuNav a:visited {
+	color: #666666;
+	text-decoration: none;
+}
+#submenuNav a:hover {
+	text-decoration: none;
+	color: #161616;
+}
+#submenu li ul {
+	font-weight: normal;
+	padding: 0px;
+	margin: 0px;
+	width: 180px;
+}
+#submenu li ul li {
+	font-size: 11px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	display: block;
+	line-height: 12px;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 7px;
+	margin-left: 20px;
+	padding: 0px;
+}
+
+#submenu li ul li a {
+	text-decoration: none;
+	font-weight: normal;
+}
+#submenu li ul li a:hover {
+	text-decoration: none;
+}

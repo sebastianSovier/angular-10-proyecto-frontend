@@ -1,0 +1,280 @@
+TD {
+	FONT-SIZE: 10px; FONT-FAMILY: verdana,arial
+}
+.tablaCabecera {
+	FONT-SIZE: 10px; COLOR: red; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #c2dbf8
+}
+.tablaGrilla {
+	<!--BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; BORDER-LEFT: #c2dbf8 1px solid; BORDER-BOTTOM: #c2dbf8 1px solid; BACKGROUND-COLOR: #c2dbf8-->
+	padding: 0px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #7AC142;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #7AC142;
+	width: 95%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.thGrilla {
+	<!--FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #fff; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #99a5c0-->
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #7AC142;
+	margin: 0px;
+	padding: 2px;
+}
+.tdGrilla {
+	<!--BACKGROUND-COLOR: #ffffff-->
+	margin: 0px;
+	padding: 2px;
+	background-color: #f5f5f5;
+}
+.titleBar {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #ffffff; FONT-FAMILY: verdana,arial
+}
+.titleInputText {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.claseRadio {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #000; FONT-FAMILY: verdana,arial
+}
+.titleClase {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.buttonSave {
+	BORDER-RIGHT: #fff 0px solid; BORDER-TOP: #fff 0px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #fff 0px solid; COLOR: #fff; BORDER-BOTTOM: #fff 0px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #ff6600
+}
+.thIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #fff; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #99a5c0
+}
+.thLinkIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #c2dbf8
+}
+.tdIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial
+}
+.tdIndipro1 {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #ffffff
+}
+.tdLinkIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial
+}
+.tdOutText {
+	BORDER-RIGHT: #000 1px solid; BORDER-TOP: #000 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #000 1px solid; COLOR: #000; BORDER-BOTTOM: #000 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #fff
+}
+.secondlevelnav A {
+	MARGIN-TOP: 3px; FONT-SIZE: 11px; Z-INDEX: 7; MARGIN-BOTTOM: 4px; MARGIN-LEFT: 5px; VERTICAL-ALIGN: top; COLOR: #000063; LINE-HEIGHT: 13px; FONT-FAMILY: verdana,arial; TEXT-DECORATION: none
+}
+.secondlevelnav A:hover {
+	COLOR: #3366ff; TEXT-DECORATION: none
+}
+.thirdlevelnav A {
+	MARGIN-TOP: 3px; FONT-SIZE: 11px; Z-INDEX: 7; MARGIN-BOTTOM: 3px; MARGIN-LEFT: 5px; VERTICAL-ALIGN: top; COLOR: #000063; LINE-HEIGHT: 13px; FONT-FAMILY: verdana,arial; TEXT-DECORATION: none
+}
+.thirdlevelnav A:hover {
+	COLOR: #3366ff; TEXT-DECORATION: none
+}
+.close {
+	FONT-SIZE: 10px; MARGIN-LEFT: 15px; COLOR: #3366ff; FONT-FAMILY: verdana,arial; TEXT-DECORATION: none
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BACKGROUND-REPEAT: no-repeat
+}
+INPUT {
+	FONT-SIZE: 10px; FONT-FAMILY: verdana,arial
+}
+SELECT {
+	FONT-SIZE: 10px; FONT-FAMILY: verdana,arial
+}
+A {
+	COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.smallText {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #000; FONT-FAMILY: verdana,arial
+}
+.smallText B {
+	FONT-WEIGHT: bold
+}
+.smallTextalt {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+P {
+	FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: verdana,arial; LIST-STYLE-TYPE: square
+}
+.body {
+	FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: verdana,arial; LIST-STYLE-TYPE: square
+}
+UL {
+	FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: verdana,arial; LIST-STYLE-TYPE: square
+}
+#logo {
+	MARGIN-TOP: 14px
+}
+.updated {
+	FONT-SIZE: 10px; COLOR: #999; FONT-FAMILY: verdana,arial; TEXT-ALIGN: right
+}
+.date {
+	FONT-SIZE: 10px; COLOR: #000; FONT-FAMILY: verdana,arial
+}
+.altdate {
+	FONT-SIZE: 10px; COLOR: #fff; FONT-FAMILY: verdana,arial
+}
+.header {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.altsubheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #006; FONT-STYLE: italic; FONT-FAMILY: verdana,arial
+}
+TD.tableHd {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+TD.tableHdalt {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #fff; FONT-FAMILY: verdana,arial
+}
+TD.tableBd {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+TD.tableBdalt {
+	FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+TD.tableBdalt A {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; FONT-FAMILY: verdana,arial
+}
+.tabletext {
+	FONT-SIZE: 12px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.imageTxt {
+	FONT-SIZE: 10px; COLOR: #000; FONT-FAMILY: verdana,arial
+}
+.bodyalt {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: verdana,arial
+}
+.introbody {
+	FONT-SIZE: 12px; COLOR: #000; FONT-STYLE: italic; FONT-FAMILY: verdana,arial
+}
+.bodylink {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.shortcut A {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN-BOTTOM: 3px; COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.shortcut {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN-BOTTOM: 3px; COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.breadcrumb {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #999; FONT-FAMILY: verdana,arial
+}
+.breadcrumbSel {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ff6500; FONT-FAMILY: verdana,arial; TEXT-DECORATION: none
+}
+.breadcrumbSel A {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ff6500; FONT-FAMILY: verdana,arial; TEXT-DECORATION: none
+}
+.fullsearch {
+	FONT-SIZE: 10px; COLOR: #ccc; FONT-FAMILY: verdana,arial
+}
+.fullsearch A {
+	FONT-SIZE: 10px; COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.fullsearch .fullsearchSel {
+	FONT-SIZE: 10px; COLOR: #ccc; FONT-FAMILY: verdana,arial
+}
+.fourthlevelHd {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #999; FONT-FAMILY: verdana,arial
+}
+.fourthlevel A {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN-BOTTOM: 2px; COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.fourthlevel {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN-BOTTOM: 2px; COLOR: #ff6500; FONT-FAMILY: verdana,arial
+}
+.altHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.jumpboxHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN: 15px 0px 0px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.jumpboxHeader A {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN: 15px 0px 0px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.jumpboxOp {
+	MARGIN: 0px 0px 4px
+}
+.jumpboxOp A {
+	FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.search {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+SPAN IMG {
+	DISPLAY: inline
+}
+.headerCopy {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana, arial
+}
+.titleBar {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #ffffff; FONT-FAMILY: verdana,arial
+}
+.titleInputText {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.claseRadio {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #000; FONT-FAMILY: verdana,arial
+}
+.titleClase {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #006; FONT-FAMILY: verdana,arial
+}
+.buttonSave {
+	BORDER-RIGHT: #fff 0px solid; BORDER-TOP: #fff 0px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #fff 0px solid; COLOR: #fff; BORDER-BOTTOM: #fff 0px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #ff6600
+}
+.thIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #fff; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #99a5c0
+}
+.thLinkIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #c2dbf8
+}
+.tdIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial
+}
+.tdLinkIndipro {
+	BORDER-RIGHT: #c2dbf8 1px solid; BORDER-TOP: #c2dbf8 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #c2dbf8 1px solid; COLOR: #006; BORDER-BOTTOM: #c2dbf8 1px solid; FONT-FAMILY: verdana,arial
+}
+.tdOutText {
+	BORDER-RIGHT: #000 1px solid; BORDER-TOP: #000 1px solid; FONT-SIZE: 10px; BORDER-LEFT: #000 1px solid; COLOR: #000; BORDER-BOTTOM: #000 1px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #fff
+}
+.buttonSaveCopy {
+	BORDER-RIGHT: #fff 0px solid; BORDER-TOP: #fff 0px solid; FONT-WEIGHT: bold; FONT-SIZE: 10px; BORDER-LEFT: #fff 0px solid; COLOR: #fff; BORDER-BOTTOM: #fff 0px solid; FONT-FAMILY: verdana,arial; BACKGROUND-COLOR: #cccccc
+}
+.subtitulos {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #3366cc; FONT-FAMILY: verdana, arial
+}
+.tabla {
+	padding: 0px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #7AC142;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #7AC142;
+	width: 95%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.tabla th {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #7AC142;
+	margin: 0px;
+	padding: 2px;
+}
+.tabla td {
+	margin: 0px;
+	padding: 2px;
+	background-color: #f5f5f5;
+}

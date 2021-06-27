@@ -1,0 +1,243 @@
+<div id="tablaPrincipal" class="p-grid">
+	<div class="p-col-12">
+		<h1>PAGO CUOTA MORTUARIA</h1>
+		<h5></h5>
+		<h5></h5>
+		<hr class="linea1-hr" />
+		<br />
+		<hr class="linea2-hr" />
+	</div>
+
+	<div class="p-col-12">
+		<div class="card cambioheight">
+			<h5></h5>
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12"></div>
+				<div class="p-field p-col-12">
+					<h3 class="centermensaje">{{ p_cuota }}</h3>
+				</div>
+				<div class="p-field p-col-12">
+					<p-messages [value]="msgs"></p-messages>
+				</div>
+			</div>
+		</div>
+		<div class="p-col-12">
+			<h4>Para terminar el proceso, Seleccione recepcionar documentos.</h4>
+		</div>
+		<div class="p-col-12">
+			<div class="p-fluid p-formgrid p-grid">
+				<div class="p-col-2" *ngIf="recepcionarDocto; else finalizar">
+					<button pButton pRipple (click)="AbrirRecepcionDeDocumentos()" [disabled]="!respuestaControlDocto"
+						type="button" label="Recepcionar Documentos" class="p-button-warning p-mr-2 p-mb-2"></button>
+				</div>
+				<ng-template #finalizar>
+					<div class="p-col-2">
+						<button pButton pRipple type="button" (click)="displayComprobante=true" label="Ver Solicitud"
+							class="p-mr-2 p-mb-2"></button>
+					</div>
+				</ng-template>
+			</div>
+			<p-dialog id="modalsolicitud" header="{{ fecha_solicitud }}" [(visible)]="displayComprobante"
+				[draggable]="false" [resizable]="false" [modal]="true" [baseZIndex]="999999999" showEffect="fade"
+				[style]="{ width: '700px', minWidth: '700px' }" [contentStyle]="{ minHeight: '750px' }">
+				<div>
+					<div id="formImprimir" class="p-fluid p-formgrid p-grid">
+						<div *ngIf="esImpresion; else noesImpresion">
+							<div class="p-col-12">Fecha Solicitud: {{ fecha_solicitud }}</div>
+						</div>
+						<ng-template #noesImpresion>
+							<div class="p-col-12"></div>
+						</ng-template>
+						<div class="p-col-12"></div>
+						<div class="p-col-2"></div>
+						<div class="p-col-8">
+							<h4 class="negritatitulos paraImprimir">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitud de
+								Cuota Mortuaria
+							</h4>
+						</div>
+						<div class="p-col-2"></div>
+						<div class="p-field p-col-12">
+							<h5 class="negritatitulos">Datos del Fallecido</h5>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Póliza:</label>
+								<label class="fuenteboleta1">{{ poliza }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Compañia: </label>
+								<label class="fuenteboleta1">{{ compania }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Rut: </label>
+								<label class="fuenteboleta1">{{ rut }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Nombre: </label>
+								<label class="fuenteboleta1">{{ nombre }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Relación: </label>
+								<label class="fuenteboleta1">{{ relacion }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Fecha Defunción: </label>
+								<label class="fuenteboleta1">{{ fecha_defuncion }}</label>
+							</span>
+						</div>
+						<div class="p-col-12">
+							<h5 class="negritatitulos">Datos de la Cuota Mortuaria</h5>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Sucursal: </label>
+								<label class="fuenteboleta1">{{ sucursal }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Nombre de Receptor: </label>
+								<label class="fuenteboleta1">{{ nombre_del_receptor }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Rut Receptor: </label>
+								<label class="fuenteboleta1">{{ rut_receptor }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<br />
+							<span class="">
+								<label class="fuenteboleta">Rut Empresa: </label>
+								<label class="fuenteboleta1">{{ rut_empresa }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Razón Social: </label>
+								<label class="fuenteboleta1">{{ razon_social }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Sucursal Empresa: </label>
+								<label class="fuenteboleta1">{{ sucursal_empresa }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">N° Factura: </label>
+								<label class="fuenteboleta1">{{ numero_factura }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Fecha Factura: </label>
+								<label class="fuenteboleta1">{{ fecha_factura }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<br />
+							<span class="">
+								<label class="fuenteboleta">Monto Aprobado: </label>
+								<label class="fuenteboleta1">{{ monto_aprobado }}</label>
+							</span>
+						</div>
+						<div class="p-field p-col-12">
+							<span class="">
+								<label class="fuenteboleta">Monto Cobrado: </label>
+								<label class="fuenteboleta1">{{ monto_cobrado }}</label>
+							</span>
+							<h5></h5>
+							<h5></h5>
+						</div>
+
+						<div class="p-field p-col-12"></div>
+						<div class="p-field p-col-12"></div>
+						<div class="p-col-12">
+							<br /><br />
+							<div class="p-fluid p-formgrid p-grid">
+								<div class="p-col-4">
+									<span class="">
+										<label class="fuenteboleta1">-------------------------------</label>
+									</span>
+								</div>
+								<div class="p-col-4 p-offset-4">
+									<span class="">
+										<label class="fuenteboleta1">------------------------------</label>
+									</span>
+								</div>
+								<div class="p-col-4">
+									<span class="">
+										<label class="fuenteboleta1">Firma del Solicitante</label>
+									</span>
+								</div>
+								<div class="p-col-4 p-offset-4">
+									<span class="">
+										<label class="fuenteboleta1">Ejecutivo </label>
+									</span>
+								</div>
+								<div class="p-col-4"></div>
+								<div class="p-field p-col-4 p-offset-4">
+									<label>{{ nombre_ejecutivo }}</label>
+								</div>
+							</div>
+							<div class="p-col-3"></div>
+							<div class="p-field p-col-6 p-offset-3">
+								<span class="">
+									<svg jsbarcode jsbarcode-height="70" [attr.jsbarcode-value]="codigo_barra"
+										[attr.jsbarcode-displayvalue]="false"></svg>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="p-col-12">
+					<div class="p-fluid p-formgrid p-grid">
+						<div class="p-col-2">
+							<button pButton pRipple type="button" label="Imprimir" (click)="ImprimirBoleta()"
+								class="p-mr-2 p-mb-2"></button>
+						</div>
+						<div class="p-col-2 p-offset-8">
+							<button pButton pRipple type="button" (click)="displayComprobante=false" label="Cerrar"
+								class="p-button-danger p-mr-2 p-mb-2"></button>
+						</div>
+					</div>
+				</div>
+			</p-dialog>
+		</div>
+		<p-dialog (onHide)="closeModal()" id="modalsolicitud" header=" " [(visible)]="mostrarIframe" [draggable]="false"
+			[resizable]="true" [modal]="true" [baseZIndex]="999999999" showEffect="fade"
+			[style]="{ width: '900px', minWidth: '900px' }" [contentStyle]="{ minHeight: '650px' }">
+			<div class="p-col-12">
+				<div class="p-fluid p-formgrid p-grid">
+					<iframe [src]="urlSafeAperturaControlDocto" id="iframeRecepcion" frameborder="0" scrolling="no"
+						width="900px" height="650px"></iframe>
+				</div>
+			</div>
+		</p-dialog>
+		<!--   <p-dialog id="modalRespuesta" header=" " [(visible)]="mostrarIframeRespuesta" [draggable]="false" [resizable]="true" [modal]="true" [baseZIndex]="999999999" showEffect="fade" [style]="{width: '600px', minWidth: '600px'}" [contentStyle]="{minHeight: '650px'}">
+            <div class="p-col-12">
+                <div class="p-fluid p-formgrid p-grid">
+                    <iframe [src]="urlSafeRespuestaControlDocto" id="iframeRespuesta" frameborder="0" scrolling="no" width="900px" height="650px"></iframe>
+                </div>
+            </div>
+        </p-dialog>-->
+	</div>
+</div>

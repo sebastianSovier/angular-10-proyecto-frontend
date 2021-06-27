@@ -1,0 +1,263 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+	color: #5a5a5a;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	background-color: #e3e3e3;
+}
+a img {
+	border:none !important;
+}
+#envoltorio {
+	padding: 0px;
+	width: 780px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: -390px;
+	position: absolute;
+	left: 50%;
+	top: 0%;
+}
+#nav {
+	padding: 0px;
+	width: 770px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	text-align: right;
+}
+
+#top {
+	margin: 0px;
+	padding: 0px;
+	height: 69px;
+	width: 780px;
+}
+#contenido {
+	width: 770px;
+	text-align: left;
+	background-image: url(../images/fondo_int.gif);
+	background-repeat: repeat-y;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+}
+#contenido #lateral {
+	margin: 0px;
+	padding: 0px;
+	width: 200px;
+	float: left;
+}
+#lateral #flash {
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 182px;
+	width: 200px;
+}
+#lateral #menuLat {
+	padding: 0px;
+	width: 200px;
+	margin-top: 5px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+#menuLat ul {
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	list-style-type: none;
+}
+#menuLat ul li {
+	padding-top: 0px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	margin: 0px;
+}
+
+
+
+#contenido #texto{
+	margin: 0px;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 0px;
+	padding-left: 15px;
+	float: right;
+	width: 540px;
+}
+#texto a.subraya {
+	text-decoration: underline;
+}
+
+#texto ul {
+	list-style-type: none;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+}
+#texto li {
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+}
+
+#texto #ruta {
+	font-size: 10px;
+	font-family: Tahoma, Verdana, Arial;
+	color: #838383;
+}
+#ruta ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#ruta li {
+	float: left;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+#ruta li.ultimo {
+	font-weight: bold;
+}
+#contenido #pie {
+	float: right;
+	width: 570px;
+	text-align: center;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+
+#desarrollado {
+	background-color: #e3e3e3;
+	background-image: url(../images/final_int.gif);
+	background-repeat: no-repeat;
+	background-position: top;
+	margin: 0px;
+	width: 770px;
+	font-size: 10px;
+	text-align: left;
+	padding-top: 7px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+}
+
+.box {
+	background-color: #efefef;
+	background-image: url(../images/home/fondo_box.gif);
+	background-repeat: repeat-x;
+	background-position: top;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #d6d6d6;
+	padding: 2px;
+	color: #5A5A5A;
+	margin: 0px;
+}
+.chiqui {
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a {
+	color: #5a5a5a;
+	text-decoration: none;
+}
+a:visited {
+	color: #5a5a5a;
+	text-decoration: none;
+}
+a:hover {
+	color: #858585;
+	text-decoration: underline;
+}
+h1 {
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 3px;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #858d96;
+	color: #7AC142;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 15px;
+	margin-right: 0px;
+	margin-bottom: 15px;
+	margin-left: 0px;
+}
+
+p {
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 7px;
+	margin-left: 0px;
+	line-height: 16px;
+}
+.negrita {
+	font-weight: bold;
+}
+
+.alaDer {
+	text-align: right;
+	float: right;
+}
+.clear {
+	clear: both;
+}
+.tabla {
+	padding: 0px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #7AC142;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #7AC142;
+	width: 95%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.tabla th {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #7AC142;
+	margin: 0px;
+	padding: 2px;
+}
+.tabla td {
+	margin: 0px;
+	padding: 2px;
+	background-color: #f5f5f5;
+}
+.centrado {
+	text-align: center;
+}
